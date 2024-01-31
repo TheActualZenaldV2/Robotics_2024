@@ -1,0 +1,52 @@
+#include <Arduino.h>
+
+// Global Variables
+String myIncoming = "";
+int myLocation = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  // I don't typically use the following
+  while (!Serial) {};   // waits for the serial monitor to be attached
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Serial.println("Who loves speeding in school zones? ");
+  while (Serial.available() == 0) {} // waits until enter key is pushed
+
+  myIncoming = Serial.readString();
+
+  // other string functions at 
+  // https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
+  // myIncoming.toUpperCase(); 
+  myLocation = myIncoming.indexOf("Tommy");
+
+  if (myLocation >= 0) {  // -1 means nothing found
+    Serial.println("Tommy loves running over little kids");
+    
+    // Simulate yellow by turning on both red and green components of the LED
+    digitalWrite(LED_BUILTIN, HIGH);   // Turn on the LED (both red and green)
+    delay(2500);  // Wait for 2.5 seconds (half of 5 seconds)
+    digitalWrite(LED_BUILTIN, LOW);    // Turn off the LED
+    
+    delay(2500);  // Wait for another 2.5 seconds (total 5 seconds)
+  } else {
+    Serial.println("You are not correct. The right answer is Tommy.");
+  }
+
+  // Turn off the LED
+  digitalWrite(LED_BUILTIN, LOW);
+
+  // Wait for 5 seconds before asking the next question
+  delay(5000);
+
+  myIncoming = "";
+  Serial.println("\n----------------------------------\n");
+  Serial.println("\n----------------------------------\n");
+  Serial.println("\n----------------------------------\n");
+  Serial.println("\n----------------------------------\n");
+}
