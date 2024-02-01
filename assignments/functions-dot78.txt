@@ -1,0 +1,42 @@
+
+void mySimple(){ 
+  Serial.println("Now inside the simple function");
+}
+
+int myAdd(int x, int y){ 
+  int myAdded = x + y;
+  return myAdded;
+}
+
+int myTake(int x, int y){ 
+  int myTake = x - y;
+  return myTake;
+}
+void setup() {
+  Serial.begin(115200);
+}
+
+void loop() {
+  Serial.println("Starting the main loop");
+  mySimple();
+  
+  int myX = random(5,8);
+  int myY = random(2,4); 
+  
+  Serial.println("Now passing variables to the myAdd function to return an answer");
+  int myAnswer = myAdd(myX, myY);
+  
+  Serial.println("Adding myX: "+ String(myX) + " and myY: " + String(myY) + " = " + String(myAnswer));
+  Serial.println("------------------------------");
+
+  
+  int myX1 = random(5,80);
+  int myY1 = random(20,4); 
+  
+  int myAnswer1 = myTake(myX1, myY1);
+  
+  Serial.println("Subtracting myX: "+ String(myX1) + " and myY: " + String(myY1) - " = " + String(myAnswer));
+  Serial.println("------------------------------");
+  delay(2000); 
+}
+
