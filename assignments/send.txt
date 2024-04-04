@@ -12,17 +12,15 @@
 
 #include <esp_now.h>
 #include <WiFi.h>
-
+int myNum = 0;
 // REPLACE WITH YOUR RECEIVER MAC Address
-uint8_t broadcastAddress[] ={0x34, 0x85, 0x18, 0xAD, 0x01, 0xC8};
+uint8_t broadcastAddress[] ={//see mac address code to get your RECEIVER BOARD mac address};
 
 // Structure example to send data
 // Must match the receiver structure
 typedef struct struct_message {
   char a[32];
-  int b;
-  float c;
-  bool d;
+
 } struct_message;
 
 // Create a struct_message called myData
@@ -66,11 +64,10 @@ void setup() {
 }
  
 void loop() {
+  myNum++;
   // Set values to send
-  strcpy(myData.a, "THIS IS A CHAR");
-  myData.b = random(1,20);
-  myData.c = 1.2;
-  myData.d = false;
+sprintf(myData.a, "Number Received: %d", myNum);
+
   
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
