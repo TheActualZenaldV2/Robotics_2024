@@ -48,9 +48,9 @@ esp_now_peer_info_t peerInfo;
    
 int mapJoystickToMotor(int joystickValueY) {
     // Define the minimum, middle and maximum values for the joystick
-    int minJoystick = 0;
+    int minJoystick = 4095;
     int midJoystick = 1900;
-    int maxJoystick = 4095;
+    int maxJoystick = 0;
 
     // Define the minimum, middle and maximum values for the motor
     int minMotor = -255;
