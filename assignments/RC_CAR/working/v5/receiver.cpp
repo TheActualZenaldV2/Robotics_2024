@@ -45,13 +45,13 @@ y = atoi(myData.b);
 
 if(y < 0){
   //car is going backwards. find backwards direction.
-  digitalWrite(D5, 0);    // set other direction
-  digitalWrite(D3, 1);    // set one direction
+  digitalWrite(D5, 1);    // set other direction
+  digitalWrite(D3, 0);    // set one direction
   analogWrite(D4, abs(y));   // set speed to positive value
 } else if (y > 0){
   //car is going forwards.
-  digitalWrite(D5, 1);    // set other direction
-  digitalWrite(D3, 0);    // set one direction
+  digitalWrite(D5, 0);    // set other direction
+  digitalWrite(D3, 1);    // set one direction
   analogWrite(D4, y);   // set speed
 } else if (y == 0) {
   //car is not moving.
@@ -82,6 +82,7 @@ void setup() {
   } else {
         Serial.println("ESP-NOW Init Success");
         Serial.print("-----------------------------------------------------------------------------------\n");
+
 
   }
   
