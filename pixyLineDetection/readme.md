@@ -12,7 +12,7 @@ int myEchoPin = A1;     // Echo on Rangefinder
 
 
 
-Pixy:
+Pixy: <br>
 <img width="214" alt="pixy-connector" src="https://github.com/TheActualZenaldV2/Robotics_2024/assets/115652432/935662c6-ab64-4dc5-9ce4-d535a3902987">
 
 
