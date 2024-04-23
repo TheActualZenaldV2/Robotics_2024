@@ -19,8 +19,9 @@ Used for main motor. Follow Pinout:
 - Red = Battery +
 - Black = Battery -
 
+
 ## Pixy
-Train on vectors. 
+Train on vectors. <br> 
 ![Pixy Connector](https://github.com/TheActualZenaldV2/Robotics_2024/assets/115652432/935662c6-ab64-4dc5-9ce4-d535a3902987)
 
 ## XIAO_ESP32S3 Pinout
