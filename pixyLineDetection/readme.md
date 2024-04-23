@@ -14,8 +14,6 @@ Used for main motor. Follow Pinout:
 - Trig = A0
 - Echo = A1
 
----
-
 ## Servo
 - Control = D2
 - Red = Battery +
